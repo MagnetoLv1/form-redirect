@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('redirect')) {
+if (! function_exists('form_redirect')) {
     /**
      * Get an instance of the redirector.
      *
