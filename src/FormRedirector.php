@@ -43,7 +43,7 @@ class FormRedirector
     public function to($path, $status = 302, $headers = [], $secure = null)
     {
         $path = $this->generator->to($path, [], $secure);
-        return $this->createPoster($path, $status, $headers);
+        return $this->createRedirectResponse($path, $status, $headers);
     }
 
     /**
@@ -68,15 +68,16 @@ class FormRedirector
      * @param  array $headers
      * @return FormRedirectResponse;
      */
-    protected function createPoster($path, $status, $headers)
+    protected function createRedirectResponse($path, $status, $headers)
     {
-        $posterResponse = new FormRedirectResponse($path, $status, $headers);
+        $formRedirectResponse = new FormRedirectResponse($path, $status, $headers);
 
         if (isset($this->session)) {
-            $posterResponse->setSession($this->session);
+            $formRedirectResponse->setSession($this->session);
         }
+        $formRedirectResponse->setRequest($this->generator->getRequest());
 
-        return $posterResponse;
+        return $formRedirectResponse;
     }
     /**
      * Set the active session store.
