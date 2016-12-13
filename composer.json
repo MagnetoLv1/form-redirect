@@ -15,7 +15,7 @@
             "Lomi525\\FormRedirect\\": "src/"
         },
         "files":[
-          "src/helper.php"
+          "src/helpers.php"
         ]
     }
 }
