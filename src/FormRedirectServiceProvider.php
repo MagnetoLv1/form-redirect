@@ -7,6 +7,12 @@ use Illuminate\Support\ServiceProvider;
 class FormRedirectServiceProvider extends  ServiceProvider
 {
 
+    public function boot()
+    {
+
+        $this->loadViewsFrom(__DIR__ . '/views', 'FormRedirect');
+    }
+
     /**
      * Register the service provider.
      *
