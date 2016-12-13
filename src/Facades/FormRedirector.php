@@ -14,6 +14,6 @@ class FormRedirector extends Facade
 
     protected static function getFacadeAccessor()
     {
-        return 'FormRedirector';
+        return 'form.redirect';
     }
 }
