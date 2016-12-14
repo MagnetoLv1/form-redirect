@@ -2,6 +2,7 @@
 namespace Lomi525\FormRedirect;
 
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\ResponseTrait;
 use Illuminate\Support\MessageBag;
@@ -112,6 +113,7 @@ class FormRedirectResponse extends Response
     {
         $this->input = $input ?: $this->request->input();
         unset($this->input['_token']);
+        unset($this->input['_method']);
 
         $this->session->flashInput($this->removeFilesFromInput($this->input));
         return $this;
