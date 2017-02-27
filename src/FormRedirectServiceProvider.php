@@ -20,7 +20,8 @@ class FormRedirectServiceProvider extends  ServiceProvider
      */
     public function register()
     {
-        $this->app['form.redirect'] = $this->app->share(function ($app) {
+
+        $this->app->singleton(FormRedirector::class, function ($app) {
             $formRedirector = new FormRedirector($app['url']);
 
             // If the session is set on the application instance, we'll inject it into
