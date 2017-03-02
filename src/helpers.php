@@ -1,5 +1,7 @@
 <?php
 
+use Lomi525\FormRedirect\FormRedirector;
+
 if (! function_exists('form_redirect')) {
     /**
      * Get an instance of the redirector.
@@ -13,9 +15,9 @@ if (! function_exists('form_redirect')) {
     function form_redirect($to = null, $status = 302, $headers = [], $secure = null)
     {
         if (is_null($to)) {
-            return app('form.redirect');
+            return app(FormRedirector::class);
         }
 
-        return app('form.redirect')->to($to, $status, $headers, $secure);
+        return app(FormRedirector::class)->to($to, $status, $headers, $secure);
     }
 }
